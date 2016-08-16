@@ -1,0 +1,6 @@
+table a,
+table a:hover {
+  display: block;
+  text-decoration: none !important;
+  color: inherit;
+}

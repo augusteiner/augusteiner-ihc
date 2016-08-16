@@ -1,0 +1,26 @@
+<div ng-controller="ProjectsCtrlr" ng-init="load()">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <td>
+          Projeto
+        </td>
+      </tr>
+    </thead>
+
+    <tfoot>
+    </tfoot>
+    
+    <tbody>
+      <tr ng-repeat="proj in projects">
+        <td>
+          <a href="{{proj.html_url}}" target="_blank">
+            <strong>{{proj.name}}</strong>
+            <br>
+            <small><span class="glyphicon glyphicon-warning-sign" ng-class="{'text-danger' : proj.open_issues_count > 0 }"></span> {{proj.open_issues_count}}</small>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
