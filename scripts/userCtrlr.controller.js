@@ -12,11 +12,13 @@
     var self = this;
     var $rest = $resource(app.API_HOME + '/users/:userId/repos');
 
+    self.user = $scope.$parent.user();
+
     $scope.projects = [];
 
     $scope.load = function() {
 
-      $rest.query({ userId: 'augusteiner' }).$promise.then(function(r) {
+      $rest.query({ userId: self.user.login }).$promise.then(function(r) {
 
         $scope.projects = r;
         var project;
