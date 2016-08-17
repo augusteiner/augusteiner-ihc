@@ -9,6 +9,8 @@
 
   function ProjectsCtrlr($scope, $resource) {
 
+    var $rest = $resource(app.API_HOME + '/users/:userId');
+
   }
 
 })();

@@ -1,5 +1,13 @@
 
-<div ng-controller="UserCtrlr">
+<div ng-controller="UserCtrlr" ng-init="load()">
+
+  <section ng-repeat="project in projects">
+  
+    <header>
+      {{project.name}}
+    </header>
+  
+  </section>
 
 </div>
 

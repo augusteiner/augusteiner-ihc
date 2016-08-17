@@ -10,13 +10,15 @@
   function UserCtrlr($scope, $resource) {
 
     var self = this;
+    var $rest = $resource(app.API_HOME + '/users/:userId/repos');
+
     $scope.projects = [];
 
     $scope.load = function() {
 
-      $repos.get({ userId: $scope.user.login }).$promise.then(function(r) {
+      $rest.query({ userId: 'augusteiner' }).$promise.then(function(r) {
 
-        $scope.projects = r.items;
+        $scope.projects = r;
         var project;
 
         for (var i = 0; i < $scope.projects.length; i++) {
@@ -25,7 +27,7 @@
 
           //console.log(project.name);
 
-          $miles.query({
+          /*$rest.query({
             userId: $scope.user.login,
             repoId: project.name })
           .$promise
@@ -33,7 +35,7 @@
 
             console.log(a);
             
-          });
+          });*/
           
         }
 
