@@ -1,4 +1,4 @@
 {
-  "directory": "assets/",
+  "directory": "wwwroot/assets/",
   "timeout": 240000
 }
