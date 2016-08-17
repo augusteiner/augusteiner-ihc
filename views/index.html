@@ -1,1 +1,91 @@
-views/
+
+<nav class="navbar navbar-default" ng-if="loggedIn">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span> <span
+          class="icon-bar"></span> <span class="icon-bar"></span> <span
+          class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/main">
+        <span class="glyphicon glyphicon-time"></span> Tracking
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <span class="glyphicon glyphicon-book"></span> Projetos <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="#/projects">
+                <span class="glyphicon glyphicon-th-list"></span> Busca</a>
+            </li>
+            <!-- x<li class="divider"></li>
+            <li>
+              <a href="javascript:void(0);">
+                <span class=""></span> Outra opção</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="javascript:void(0);">Mais outra opção</a></li> -->
+          </ul>
+        </li>
+        <li class="">
+          <a href="#/milestones">
+            <span class="glyphicon glyphicon-calendar"></span> Milestones</a>
+        </li>
+        <li>
+          <a href="#/tasks">
+            <span class="glyphicon glyphicon-saved"></span> Tarefas</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <img ng-src="{{user.avatar_url}}" width="25" height="25"> {{user.login}}
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" style="min-width: 26rem;">
+            <li>
+              <a href="#/profile" accesskey="p">
+                <span class="badge pull-right">
+                 <small>Alt + Shift + P</small>
+                </span>
+                <span>
+                  <span class="glyphicon glyphicon-user"></span> Meu perfil
+                </span>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#/settings" accesskey="s">
+                <span class="badge pull-right">
+                 <small>Alt + Shift + S</small>
+                </span>
+                <span>
+                  <span class="glyphicon glyphicon-cog"></span> Configurações
+                </span>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#/logout" ng-click="logout()" accesskey="e" class="clearfix">
+                <span class="badge pull-right">
+                 <small>Alt + Shift + E</small>
+                </span>
+                <span>
+                  <span class="glyphicon glyphicon-log-out"></span> Sair
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div ng-controller="UserCtrlr">
+
+</div>
+

@@ -15,11 +15,16 @@
 
     var $rest = $resource(app.API_HOME + '/users/:userId');
 
-    $scope.load = function() {
+    $scope.login = function() {
 
-      $rest.get({ userId: $scope.user.login }).$promise.then(function(r){
+      $rest.get({ userId: $scope.user.login }).$promise.then(function(r) {
 
         angular.extend($scope.user, r);
+
+        app.$routeProvider
+          .when('/login', {
+            redirectTo: '/'
+          });
 
       });
 

@@ -10,27 +10,18 @@
 
   app.config(function($routeProvider) {
 
+    app.$routeProvider = $routeProvider;
+
     $routeProvider
-      .when('/projects', {
-        templateUrl: 'views/projects/',
-        controller: 'ProjectsCtrlr'
-      })
-      .when('/milestones/:projectId', {
-        templateUrl: 'views/milestones/',
-        controller: 'MilestonesCtrlr'
-      })
-      .when('/tasks/:projectId', {
-        templateUrl: 'views/tasks/',
-        controller: 'TasksCtrlr'
-      })
-      .when('/main', {
-        templateUrl: 'views/',
+      .when('/login', {
+        templateUrl: 'views/login/',
         controller: 'MainCtrlr'
       })
       .otherwise({
-        redirectTo: 'main'
+        redirectTo: '/login'
       });
-    
+
   });
+
 })();
 
