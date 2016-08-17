@@ -15,11 +15,16 @@
   <link href="styles/main.css" rel="stylesheet" type="text/css">
 
 </head>
-<body ng-controller="MainCtrlr">
+<body ng-controller="MainCtrlr" ng-init="registerRoutes()">
 
   <div class="container">
+
+    <div ng-include="'views/menu/'" ng-if="loggedIn()">
+    </div>
+
     <div ng-view>
     </div>
+
   </div>
 
   <script src="assets/jquery/dist/jquery.min.js" type="text/javascript"></script>
@@ -29,9 +34,10 @@
 
   <script src="assets/angular-route/angular-route.min.js" type="text/javascript"></script>
   <script src="assets/angular-resource/angular-resource.min.js" type="text/javascript"></script>
+  <script src="assets/angular-cookies/angular-cookies.min.js" type="text/javascript"></script>
   <script src="assets/angular-animate/angular-animate.min.js" type="text/javascript"></script>
 
-  <script src="scripts/time-tracking.module.js" type="text/javascript"></script>
+  <script src="scripts/timeTracking.module.js" type="text/javascript"></script>
 
   <script src="scripts/mainCtrlr.controller.js" type="text/javascript"></script>
 
