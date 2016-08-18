@@ -18,6 +18,9 @@
 
     $scope.load = function() {
 
+      $scope.projects =[{ name:'teste', open_issues: 10, description: 'Blablabla' }];
+      return;
+
       $rest.query({ userId: self.user.login }).$promise.then(function(r) {
 
         $scope.projects = r;

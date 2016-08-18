@@ -1,12 +1,30 @@
 
 <div ng-controller="UserCtrlr" ng-init="load()">
 
-  <section ng-repeat="project in projects">
+  <section class="panel panel-primary" ng-repeat="project in projects">
   
-    <header>
-      {{project.name}}
+    <header class="panel-heading">
+        <strong class="btn btn-link" href="#/projects/{{project.name}}">
+          {{project.name}}</strong>
+        <div class="btn-group">
+          <a class="btn btn-sm btn-default" href="#/tasks/{{project.name}}" target="_blank">
+            <span class="fa fa-bug fa-lg"></span>
+            ({{project.open_issues}})</a>
+        </div>
     </header>
   
+    <main class="panel-body">
+      {{project.description}}
+    </main>
+
+    <footer class="panel-footer">
+      <div class="btn-group">
+        <a class="btn btn-link" href="{{project.html_url}}" target="_blank">
+          <span class="fa fa-github fa-fw"></span> github
+        </a>
+      </div>
+    </footer>
+
   </section>
 
 </div>
