@@ -40,7 +40,7 @@
         <th>
           Projeto
         </th>
-        <th style="width: 12rem;">
+        <th style="width: 20rem;">
           Ações
         </th>
       </tr>
@@ -66,6 +66,15 @@
           <div class="btn-group pull-right">
             <a class="btn btn-sm btn-primary" title="Ver Detalhes">
               <span class="glyphicon glyphicon-eye-open"></span>
+            </a>
+            <a class="btn btn-sm btn-primary" href="{{project.html_url}}" target="_blank" title="Ver no Github">
+              <span class="fa fa-github fa-lg"></span>
+            </a>
+            <a class="btn btn-sm btn-primary" href="#/milestones/{{project.name}}" title="Ver Milestones">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </a>
+            <a class="btn btn-sm btn-primary" href="#/tasks/{{project.name}}" title="Ver Tarefas">
+              <span class="glyphicon glyphicon-saved"></span>
             </a>
             <a data-target="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
