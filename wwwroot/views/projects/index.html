@@ -1,4 +1,5 @@
-<div ng-controller="ProjectsCtrlr" ng-init="load()">
+
+<div class="well" ng-controller="ProjectsCtrlr" ng-init="load()">
   <ol class="breadcrumb">
     <li>
       <a href="#/">
@@ -6,12 +7,12 @@
     <li>
       Projetos</li>
   </ol>
-  <form ng-submit="find(search.term)">
+  <form ng-submit="">
     <div class="input-group input-group-sm">
       <a class="input-group-addon">
         <span class="glyphicon glyphicon-search"></span>
       </a>
-      <input class="form-control search search-user" type="search" placeholder="Buscar por Nome, Endereço, CPF" ng-model="search.term">
+      <input class="form-control search search-user" type="search" placeholder="Buscar por Nome" ng-model="search.term">
       <div class="input-group-btn">
         <a class="btn btn-primary" href="#{{url}}/new">
           <span class="glyphicon glyphicon-plus"></span> Novo
@@ -36,9 +37,12 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <td>
+        <th>
           Projeto
-        </td>
+        </th>
+        <th style="width: 12rem;">
+          Ações
+        </th>
       </tr>
     </thead>
 
@@ -46,43 +50,53 @@
     </tfoot>
     
     <tbody>
-      <tr ng-repeat="proj in projects">
+      <tr ng-repeat="project in projects">
         <td>
-          <a href="{{proj.html_url}}" target="_blank">
-            <strong>{{proj.name}}</strong>
+          <a href="{{project.html_url}}" target="_blank">
+            <h4>
+              <em>{{project.name}}</em>
+            </h4>
             <br>
-            <small><span class="glyphicon glyphicon-warning-sign" ng-class="{'text-danger' : proj.open_issues_count > 0 }"></span> {{proj.open_issues_count}}</small>
+            <small>{{project.description}}</small>
+            <!--<br>
+            <small><span class="glyphicon glyphicon-warning-sign" ng-class="{'text-danger' : project.open_issues_count > 0 }"></span> {{proj.open_issues_count}}</small>-->
           </a>
         </td>
         <td>
-          <div class="btn-group">
-            <a class="btn btn-sm btn-primary" title="Remover" ng-click="remove(item.id)">
-              <span class="glyphicon glyphicon-remove"></span>
+          <div class="btn-group pull-right">
+            <a class="btn btn-sm btn-primary" title="Ver Detalhes">
+              <span class="glyphicon glyphicon-eye-open"></span>
             </a>
             <a data-target="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu pull-right">
               <li>
-                <a class="" href="#{{rootPath}}">
-                  <span class="glyphicon glyphicon-remove"></span> Deletar
+                <a class="" href="#/projects/{{project.name}}">
+                  <span class="glyphicon glyphicon-eye-open"></span> Ver Detalhes
                 </a>
               </li>
               <li class="divider"></li>
               <li>
-                <a class="" href="javascript:void(0);">
-                  Ver locações</a></li>
-              <li>
-                <a class="" href="javascript:void(0);">
+                <a href="{{project.html_url}}" target="_blank">
                   <span class="fa fa-github fa-lg"></span>
-                  Ver reservas</a></li>
+                  Ver no Github</a>
+              </li>
+              <li>
+                <a class="" href="#/milestones/{{project.name}}">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                  Ver Milestones</a>
+              </li>
+              <li>
+                <a class="" href="#/tasks/{{project.name}}">
+                  <span class="glyphicon glyphicon-saved"></span>
+                  Ver Tarefas</a>
+              </li>
             </ul>
           </div>
-        </td>
-        <td>
-          <span class=" fa-6"></span>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+

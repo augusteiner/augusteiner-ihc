@@ -1,31 +1,27 @@
 
-<div ng-controller="UserCtrlr" ng-init="load()">
+<div class="well" ng-controller="UserCtrlr" ng-init="settings.accessToken ? load() : void(0)">
 
-  <section class="panel panel-primary" ng-repeat="project in projects">
-  
-    <header class="panel-heading">
-        <strong class="btn btn-link" href="#/projects/{{project.name}}">
-          {{project.name}}</strong>
-        <div class="btn-group">
-          <a class="btn btn-sm btn-default" href="#/tasks/{{project.name}}" target="_blank">
-            <span class="fa fa-bug fa-lg"></span>
-            ({{project.open_issues}})</a>
-        </div>
-    </header>
-  
-    <main class="panel-body">
-      {{project.description}}
-    </main>
+  <h4>Timeline</h4>
 
-    <footer class="panel-footer">
-      <div class="btn-group">
-        <a class="btn btn-link" href="{{project.html_url}}" target="_blank">
-          <span class="fa fa-github fa-fw"></span> github
-        </a>
-      </div>
-    </footer>
+  <div ng-if="settings.accessToken == null">
+    <em>Nenhum Token de Acesso configurado, vá em <a href="#/settings">Configurações</a> e defina um Token</em>
+  </div>
 
-  </section>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="notification in timeline">
+      <span class="fa fa-bug fa-lg fa-fw text-danger" ng-if="notification.subject.type == 'Issue'"></span>
+      <span class="fa fa-code-fork fa-lg fa-fw text-info" ng-if="notification.subject.type == 'PullRequest'"></span>
+      <span class="fa fa-file-code-o fa-lg fa-fw" ng-if="notification.subject.type == 'Commit'"></span>
+
+      <a href="#" class="text-primary">
+        {{notification.subject.title}}
+      </a>
+
+      <a class="pull-right text-primary" href="{{notification.latest_comment_url}}" title="Marcar como lida">
+        <span class="glyphicon glyphicon-ok"></span>
+      </a>
+    </li>
+  </ul>
 
 </div>
 

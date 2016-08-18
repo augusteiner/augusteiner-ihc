@@ -1,0 +1,45 @@
+
+<div class="well">
+  <h4>Configurações</h4>
+
+  <form class="" method="POST" action="javascript:void(0);">
+    <div class="form-group">
+      <label class="">
+        Tema
+      </label>
+      <select class="form-control" ng-model="settings.theme">
+        <option value="paper">
+          Paper
+        </option>
+        <option value="flatly">
+          Flatly
+        </option>
+        <option value="journal">
+          Journal
+        </option>
+        <option value="united">
+          United
+        </option>
+        <option value="yeti">
+          Yeti
+        </option>
+        <option value="cosmo">
+          Cosmo
+        </option>
+        <option value="simplex">
+          Simplex
+        </option>
+        <option value="darkly">
+          Darkly
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="access_token">
+        Token de Acesso
+      </label>
+      <input id="access_token" class="form-control" type="text" ng-model="settings.accessToken">
+    </div>
+  </form>  
+</div>
+

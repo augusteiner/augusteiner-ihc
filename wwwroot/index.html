@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="time-tracking">
+<html ng-app="time-tracking" ng-controller="MainCtrlr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -10,13 +10,13 @@
 
   <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!--<link href="assets/bootswatch/darkly/bootstrap.min.css" rel="stylesheet" type="text/css" ng-if="settings.theme.dark">-->
-  <link href="assets/bootswatch/flatly/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link ng-href="assets/bootswatch/{{settings.theme}}/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="assets/angular-loading-bar/build/loading-bar.min.css" rel="stylesheet" type="text/css" media="all">
 
   <link href="styles/main.css" rel="stylesheet" type="text/css">
 
 </head>
-<body ng-controller="MainCtrlr" ng-init="registerRoutes()">
+<body ng-init="registerRoutes()">
 
   <div class="container">
 

@@ -12,6 +12,7 @@
     var self = this;
     var $rest = $resource(app.API_HOME + '/users/:userId');
 
+    $scope.settings = { theme: 'flatly' };
     $scope.auth = { };
 
     $scope.registerRoutes = function() {
@@ -89,6 +90,10 @@
 
       .when('/projects', {
         templateUrl: 'views/projects/'
+      })
+
+      .when('/settings', {
+        templateUrl: 'views/settings/'
       })
 
       .when('/', {
